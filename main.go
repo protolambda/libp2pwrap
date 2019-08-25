@@ -6,6 +6,7 @@ import (
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/libp2p/go-libp2p-daemon/p2pclient"
 	"github.com/multiformats/go-multiaddr"
+	"os"
 )
 
 var controlAddrStr = flag.String("control", "", "control multiaddress")
@@ -15,7 +16,7 @@ var peerIDStr = flag.String("peerID", "", "peer ID")
 func main() {
 	flag.Usage = func() {
 		flag.PrintDefaults()
-		fmt.Println("\nRemaining arguments are parsed as multiaddresses for specified peer")
+		_, _ = os.Stderr.WriteString("\nRemaining arguments are parsed as multiaddresses for specified peer\n")
 	}
 	flag.Parse()
 
